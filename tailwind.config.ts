@@ -75,6 +75,19 @@ export default {
           foreground: "hsl(var(--sidebar-accent-foreground) / <alpha-value>)",
           border: "var(--sidebar-accent-border)"
         },
+        olive: {
+          50: '#fcfdf9',
+          100: '#f6faef',
+          200: '#eaf4db',
+          300: '#d5ebba',
+          400: '#b7dd8f',
+          500: '#94c962',
+          600: '#71a83e',
+          700: '#556b2f',
+          800: '#465928',
+          900: '#3a4923',
+          950: '#1f2811',
+        },
         status: {
           online: "rgb(34 197 94)",
           away: "rgb(245 158 11)",

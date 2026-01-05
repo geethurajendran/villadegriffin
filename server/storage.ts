@@ -1,37 +1,50 @@
-import { type User, type InsertUser } from "@shared/schema";
-import { randomUUID } from "crypto";
-
-// modify the interface with any CRUD methods
-// you might need
+import { rooms, amenities, type Room, type InsertRoom, type Amenity, type InsertAmenity } from "@shared/schema";
 
 export interface IStorage {
-  getUser(id: string): Promise<User | undefined>;
-  getUserByUsername(username: string): Promise<User | undefined>;
-  createUser(user: InsertUser): Promise<User>;
+  getRooms(): Promise<Room[]>;
+  getRoomBySlug(slug: string): Promise<Room | undefined>;
+  createRoom(room: InsertRoom): Promise<Room>;
+  getAmenities(): Promise<Amenity[]>;
+  createAmenity(amenity: InsertAmenity): Promise<Amenity>;
 }
 
 export class MemStorage implements IStorage {
-  private users: Map<string, User>;
+  private rooms: Map<number, Room>;
+  private amenities: Map<number, Amenity>;
+  private roomId: number;
+  private amenityId: number;
 
   constructor() {
-    this.users = new Map();
+    this.rooms = new Map();
+    this.amenities = new Map();
+    this.roomId = 1;
+    this.amenityId = 1;
   }
 
-  async getUser(id: string): Promise<User | undefined> {
-    return this.users.get(id);
+  async getRooms(): Promise<Room[]> {
+    return Array.from(this.rooms.values());
   }
 
-  async getUserByUsername(username: string): Promise<User | undefined> {
-    return Array.from(this.users.values()).find(
-      (user) => user.username === username,
-    );
+  async getRoomBySlug(slug: string): Promise<Room | undefined> {
+    return Array.from(this.rooms.values()).find((r) => r.slug === slug);
   }
 
-  async createUser(insertUser: InsertUser): Promise<User> {
-    const id = randomUUID();
-    const user: User = { ...insertUser, id };
-    this.users.set(id, user);
-    return user;
+  async createRoom(insertRoom: InsertRoom): Promise<Room> {
+    const id = this.roomId++;
+    const room: Room = { ...insertRoom, id };
+    this.rooms.set(id, room);
+    return room;
+  }
+
+  async getAmenities(): Promise<Amenity[]> {
+    return Array.from(this.amenities.values());
+  }
+
+  async createAmenity(insertAmenity: InsertAmenity): Promise<Amenity> {
+    const id = this.amenityId++;
+    const amenity: Amenity = { ...insertAmenity, id };
+    this.amenities.set(id, amenity);
+    return amenity;
   }
 }
 

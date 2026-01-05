@@ -1,18 +1,27 @@
-import { sql } from "drizzle-orm";
-import { pgTable, text, varchar } from "drizzle-orm/pg-core";
+import { pgTable, text, serial, integer, boolean } from "drizzle-orm/pg-core";
 import { createInsertSchema } from "drizzle-zod";
 import { z } from "zod";
 
-export const users = pgTable("users", {
-  id: varchar("id").primaryKey().default(sql`gen_random_uuid()`),
-  username: text("username").notNull().unique(),
-  password: text("password").notNull(),
+export const rooms = pgTable("rooms", {
+  id: serial("id").primaryKey(),
+  title: text("title").notNull(),
+  description: text("description").notNull(),
+  capacity: integer("capacity").notNull(),
+  price: integer("price"), // Optional price per night
+  imageUrl: text("image_url").notNull(),
+  slug: text("slug").notNull(), // for URL
 });
 
-export const insertUserSchema = createInsertSchema(users).pick({
-  username: true,
-  password: true,
+export const amenities = pgTable("amenities", {
+  id: serial("id").primaryKey(),
+  label: text("label").notNull(),
+  icon: text("icon").notNull(), // Lucide icon name
 });
 
-export type InsertUser = z.infer<typeof insertUserSchema>;
-export type User = typeof users.$inferSelect;
+export const insertRoomSchema = createInsertSchema(rooms).omit({ id: true });
+export const insertAmenitySchema = createInsertSchema(amenities).omit({ id: true });
+
+export type Room = typeof rooms.$inferSelect;
+export type InsertRoom = z.infer<typeof insertRoomSchema>;
+export type Amenity = typeof amenities.$inferSelect;
+export type InsertAmenity = z.infer<typeof insertAmenitySchema>;
