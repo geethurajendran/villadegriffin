@@ -7,7 +7,6 @@ export const rooms = pgTable("rooms", {
   title: text("title").notNull(),
   description: text("description").notNull(),
   capacity: integer("capacity").notNull(),
-  price: integer("price"), // Optional price per night
   imageUrl: text("image_url").notNull(),
   slug: text("slug").notNull(), // for URL
 });
