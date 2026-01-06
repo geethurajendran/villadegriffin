@@ -1,24 +1,43 @@
 import { Phone, Mail, MessageCircle, Calendar } from "lucide-react";
 import { motion } from "framer-motion";
-import { useState } from "react";
+import { useState, useRef } from "react";
+import emailjs from '@emailjs/browser';
 import { useToast } from "@/hooks/use-toast";
 
 export default function Contact() {
   const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const form = useRef<HTMLFormElement>(null);
 
-  // Mock submission
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    setTimeout(() => {
-      setIsSubmitting(false);
-      toast({
-        title: "Message Sent!",
-        description: "We'll get back to you shortly.",
-      });
-      // Reset form logic would go here
-    }, 1500);
+
+    if (form.current) {
+      emailjs.sendForm(
+        'service_byzx3rm',
+        'template_up6hnrm',
+        form.current,
+        'wsS-ZuxqfB6Cp0u7M'
+      )
+        .then(() => {
+          toast({
+            title: "Message Sent!",
+            description: "We'll get back to you shortly.",
+          });
+          form.current?.reset();
+        }, (error) => {
+          toast({
+            title: "Error",
+            description: `Failed: ${error.text || "Unknown error"}`,
+            variant: "destructive",
+          });
+          console.error(error);
+        })
+        .finally(() => {
+          setIsSubmitting(false);
+        });
+    }
   };
 
   return (
@@ -50,7 +69,7 @@ export default function Contact() {
 
             <div className="grid sm:grid-cols-2 gap-4">
               <a
-                href="https://wa.me/918940076980"
+                href="https://wa.me/918940076980?text=Hello,%20I%20would%20like%20to%20inquire%20about%20a%20booking."
                 target="_blank"
                 rel="noreferrer"
                 className="flex items-center gap-3 p-4 rounded-xl bg-[#25D366] text-white hover:bg-[#20bd5a] transition-all shadow-md hover:shadow-lg hover:-translate-y-1"
@@ -101,26 +120,26 @@ export default function Contact() {
             className="bg-white p-8 md:p-10 rounded-3xl border border-border shadow-lg shadow-primary/5"
           >
             <h3 className="text-2xl font-bold font-display mb-6">Send an Inquiry</h3>
-            <form onSubmit={handleSubmit} className="space-y-6">
+            <form ref={form} onSubmit={handleSubmit} className="space-y-6">
               <div className="grid grid-cols-2 gap-4">
                 <div className="space-y-2">
                   <label className="text-sm font-medium">Name</label>
-                  <input type="text" required className="w-full px-4 py-3 rounded-xl border border-border focus:border-primary focus:ring-4 focus:ring-primary/10 focus:outline-none transition-all" placeholder="John Doe" />
+                  <input type="text" name="user_name" required className="w-full px-4 py-3 rounded-xl border border-border focus:border-primary focus:ring-4 focus:ring-primary/10 focus:outline-none transition-all" placeholder="John Doe" />
                 </div>
                 <div className="space-y-2">
                   <label className="text-sm font-medium">Phone</label>
-                  <input type="tel" required className="w-full px-4 py-3 rounded-xl border border-border focus:border-primary focus:ring-4 focus:ring-primary/10 focus:outline-none transition-all" placeholder="+91..." />
+                  <input type="tel" name="user_phone" required className="w-full px-4 py-3 rounded-xl border border-border focus:border-primary focus:ring-4 focus:ring-primary/10 focus:outline-none transition-all" placeholder="+91..." />
                 </div>
               </div>
 
               <div className="space-y-2">
                 <label className="text-sm font-medium">Email</label>
-                <input type="email" required className="w-full px-4 py-3 rounded-xl border border-border focus:border-primary focus:ring-4 focus:ring-primary/10 focus:outline-none transition-all" placeholder="john@example.com" />
+                <input type="email" name="user_email" required className="w-full px-4 py-3 rounded-xl border border-border focus:border-primary focus:ring-4 focus:ring-primary/10 focus:outline-none transition-all" placeholder="john@example.com" />
               </div>
 
               <div className="space-y-2">
                 <label className="text-sm font-medium">Message</label>
-                <textarea required rows={4} className="w-full px-4 py-3 rounded-xl border border-border focus:border-primary focus:ring-4 focus:ring-primary/10 focus:outline-none transition-all resize-none" placeholder="I'm interested in booking the Family Room..." />
+                <textarea name="message" required rows={4} className="w-full px-4 py-3 rounded-xl border border-border focus:border-primary focus:ring-4 focus:ring-primary/10 focus:outline-none transition-all resize-none" placeholder="I'm interested in booking the Family Room..." />
               </div>
 
               <button
