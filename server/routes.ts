@@ -15,24 +15,21 @@ export async function registerRoutes(
       slug: "family-room",
       description: "Spacious accommodation perfect for large families. Comfortably sleeps up to 6 guests with ample space for everyone.",
       capacity: 6,
-      price: 150,
-      imageUrl: "https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&q=80&w=1000",
+      imageUrl: "/images/family-room.jpg",
     });
     await storage.createRoom({
       title: "Bachelor Room",
       slug: "bachelor-room",
       description: "Ideal for groups of friends. Features comfortable bedding and great social space for up to 6 guests.",
       capacity: 6,
-      price: 120,
-      imageUrl: "https://images.unsplash.com/photo-1595526114035-0d45ed16cfbf?auto=format&fit=crop&q=80&w=1000",
+      imageUrl: "/images/bachelor-room.jpg",
     });
     await storage.createRoom({
       title: "Couple Room with Balcony",
       slug: "couple-room",
       description: "Romantic getaway with a private balcony offering scenic views. Perfect for couples seeking privacy and comfort.",
       capacity: 2,
-      price: 90,
-      imageUrl: "https://images.unsplash.com/photo-1590490360182-c8729f7fd7fc?auto=format&fit=crop&q=80&w=1000",
+      imageUrl: "/images/couple-room.jpg",
     });
 
     const amenitiesList = [

@@ -34,9 +34,9 @@ export default function Contact() {
 
       <div className="container-custom py-16">
         <div className="grid lg:grid-cols-2 gap-12">
-          
+
           {/* Booking Options */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             className="space-y-8"
@@ -49,9 +49,9 @@ export default function Contact() {
             </div>
 
             <div className="grid sm:grid-cols-2 gap-4">
-              <a 
-                href="https://wa.me/919876543210" 
-                target="_blank" 
+              <a
+                href="https://wa.me/918940076980"
+                target="_blank"
                 rel="noreferrer"
                 className="flex items-center gap-3 p-4 rounded-xl bg-[#25D366] text-white hover:bg-[#20bd5a] transition-all shadow-md hover:shadow-lg hover:-translate-y-1"
               >
@@ -59,9 +59,9 @@ export default function Contact() {
                 <span className="font-bold">Book on WhatsApp</span>
               </a>
 
-              <a 
-                href="https://booking.com" 
-                target="_blank" 
+              <a
+                href="https://www.booking.com/Share-MZqoG9h"
+                target="_blank"
                 rel="noreferrer"
                 className="flex items-center gap-3 p-4 rounded-xl bg-[#003580] text-white hover:bg-[#002860] transition-all shadow-md hover:shadow-lg hover:-translate-y-1"
               >
@@ -77,7 +77,7 @@ export default function Contact() {
                 </div>
                 <div>
                   <h4 className="font-bold">Phone Number</h4>
-                  <p className="text-muted-foreground">+91 98765 43210</p>
+                  <p className="text-muted-foreground">+91 89400 76980</p>
                 </div>
               </div>
 
@@ -87,14 +87,14 @@ export default function Contact() {
                 </div>
                 <div>
                   <h4 className="font-bold">Email Address</h4>
-                  <p className="text-muted-foreground">hello@olivevilla.com</p>
+                  <p className="text-muted-foreground">villadegriffin@gmail.com</p>
                 </div>
               </div>
             </div>
           </motion.div>
 
           {/* Contact Form */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
@@ -112,7 +112,7 @@ export default function Contact() {
                   <input type="tel" required className="w-full px-4 py-3 rounded-xl border border-border focus:border-primary focus:ring-4 focus:ring-primary/10 focus:outline-none transition-all" placeholder="+91..." />
                 </div>
               </div>
-              
+
               <div className="space-y-2">
                 <label className="text-sm font-medium">Email</label>
                 <input type="email" required className="w-full px-4 py-3 rounded-xl border border-border focus:border-primary focus:ring-4 focus:ring-primary/10 focus:outline-none transition-all" placeholder="john@example.com" />
@@ -123,8 +123,8 @@ export default function Contact() {
                 <textarea required rows={4} className="w-full px-4 py-3 rounded-xl border border-border focus:border-primary focus:ring-4 focus:ring-primary/10 focus:outline-none transition-all resize-none" placeholder="I'm interested in booking the Family Room..." />
               </div>
 
-              <button 
-                type="submit" 
+              <button
+                type="submit"
                 disabled={isSubmitting}
                 className="w-full py-4 rounded-xl bg-primary text-white font-bold text-lg hover:bg-primary/90 transition-all shadow-lg hover:shadow-primary/30 disabled:opacity-50 disabled:cursor-not-allowed"
               >

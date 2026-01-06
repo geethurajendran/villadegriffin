@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { useRooms } from "@/hooks/use-homestay";
-import { RoomCard } from "@/components/RoomCard";
+import { PropertyCard } from "@/components/PropertyCard";
 import { Loader2 } from "lucide-react";
 
 export default function Rooms() {
@@ -31,7 +31,7 @@ export default function Rooms() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
               >
-                <RoomCard room={room} />
+                <PropertyCard room={room} />
               </motion.div>
             ))}
           </div>

@@ -28,7 +28,7 @@ export function Navigation() {
               <Home className="w-6 h-6 text-primary" />
             </div>
             <span className="font-display font-bold text-xl md:text-2xl text-primary tracking-tight">
-              Olive Villa
+              Villa De Griffin
             </span>
           </Link>
 
@@ -38,17 +38,16 @@ export function Navigation() {
               <Link
                 key={link.href}
                 href={link.href}
-                className={`text-sm font-medium transition-colors hover:text-primary ${
-                  isActive(link.href)
+                className={`text-sm font-medium transition-colors hover:text-primary ${isActive(link.href)
                     ? "text-primary font-semibold"
                     : "text-muted-foreground"
-                }`}
+                  }`}
               >
                 {link.label}
               </Link>
             ))}
-            <Link 
-              href="/contact" 
+            <Link
+              href="/contact"
               className="bg-primary hover:bg-primary/90 text-white px-5 py-2.5 rounded-full font-medium text-sm transition-all shadow-lg shadow-primary/20 hover:shadow-primary/30 hover:-translate-y-0.5"
             >
               Book Now
@@ -80,11 +79,10 @@ export function Navigation() {
                   key={link.href}
                   href={link.href}
                   onClick={() => setIsOpen(false)}
-                  className={`block px-4 py-3 rounded-lg text-base font-medium transition-colors ${
-                    isActive(link.href)
+                  className={`block px-4 py-3 rounded-lg text-base font-medium transition-colors ${isActive(link.href)
                       ? "bg-primary/5 text-primary"
                       : "text-muted-foreground hover:bg-muted"
-                  }`}
+                    }`}
                 >
                   {link.label}
                 </Link>

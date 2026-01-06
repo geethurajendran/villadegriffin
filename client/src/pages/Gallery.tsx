@@ -3,12 +3,11 @@ import { motion } from "framer-motion";
 // Placeholder images from Unsplash since no assets provided
 // Using olive/nature themed interiors
 const images = [
-  "https://images.unsplash.com/photo-1598928506311-c55ded91a20c?q=80&w=2070",
-  "https://images.unsplash.com/photo-1616137466211-f939a420be84?q=80&w=2070",
-  "https://images.unsplash.com/photo-1595526114035-0d45ed16cfbf?q=80&w=2070",
-  "https://images.unsplash.com/photo-1592595896551-12b371d546d5?q=80&w=2070",
-  "https://images.unsplash.com/photo-1595878479901-7917242e2a86?q=80&w=1600",
-  "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?q=80&w=2070",
+  "/images/gallery/gallery-1.jpg",
+  "/images/gallery/gallery-2.jpg",
+  "/images/gallery/gallery-3.jpg",
+  "/images/gallery/gallery-4.jpg",
+  "/images/gallery/gallery-5.jpg",
 ];
 
 export default function Gallery() {

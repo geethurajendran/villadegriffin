@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { Link } from "wouter";
 import { ArrowRight, CheckCircle2 } from "lucide-react";
 import { useRooms } from "@/hooks/use-homestay";
-import { RoomCard } from "@/components/RoomCard";
+import { PropertyCard } from "@/components/PropertyCard";
 
 export default function Home() {
   const { data: rooms, isLoading } = useRooms();
@@ -13,13 +13,12 @@ export default function Home() {
       <section className="relative h-[85vh] flex items-center justify-center overflow-hidden">
         {/* Background Image with Overlay */}
         <div className="absolute inset-0 z-0">
-          {/* Unsplash: scenic nature villa landscape */}
           <img
-            src="https://images.unsplash.com/photo-1587061949409-02df41d5e562?q=80&w=2070&auto=format&fit=crop"
-            alt="Villa Hero"
+            src="/images/hero-bg.jpg"
+            alt="Villa De Griffin Hero"
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-black/40 backdrop-blur-[2px]" />
+          <div className="absolute inset-0 bg-black/20" />
         </div>
 
         <div className="container-custom relative z-10 text-center text-white">
@@ -29,9 +28,9 @@ export default function Home() {
             transition={{ duration: 0.8, ease: "easeOut" }}
             className="font-display text-5xl md:text-7xl font-bold mb-6 leading-tight"
           >
-            Escape to <span className="text-secondary">Nature</span>
+            Welcome to <span className="text-secondary">Puducherry</span>
             <br />
-            Stay in <span className="text-secondary">Comfort</span>
+            Stay at <span className="text-secondary">Villa De Griffin</span>
           </motion.h1>
 
           <motion.p
@@ -65,12 +64,12 @@ export default function Home() {
         <div className="container-custom">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
-              <span className="text-primary font-semibold tracking-wider text-sm uppercase mb-2 block">About Olive Villa</span>
+              <span className="text-primary font-semibold tracking-wider text-sm uppercase mb-2 block">About Villa De Griffin</span>
               <h2 className="text-4xl font-display font-bold mb-6 text-foreground">
                 Your Home Away From Home
               </h2>
               <p className="text-muted-foreground mb-6 leading-relaxed">
-                Welcome to Olive Villa, where modern comfort meets nature's tranquility. Designed with a simple, clean, and bright aesthetic, our homestay offers a refreshing retreat from the city hustle without breaking the bank.
+                Welcome to Villa De Griffin, your premium Home Stay where modern comfort meets nature's tranquility. Designed with a clean and bright aesthetic, we offer a refreshing retreat in the heart of Puducherry.
               </p>
               <ul className="space-y-4 mb-8">
                 {[
@@ -92,17 +91,17 @@ export default function Home() {
             <div className="relative">
               <div className="aspect-square rounded-3xl overflow-hidden shadow-2xl shadow-primary/10 relative z-10">
                 {/* Unsplash: clean bright interior bedroom */}
-                <img 
-                  src="https://images.unsplash.com/photo-1616594039964-408359566a05?q=80&w=2070&auto=format&fit=crop" 
-                  alt="Interior" 
+                <img
+                  src="https://images.unsplash.com/photo-1616594039964-408359566a05?q=80&w=2070&auto=format&fit=crop"
+                  alt="Interior"
                   className="w-full h-full object-cover"
                 />
               </div>
               <div className="absolute -bottom-6 -right-6 w-2/3 aspect-[4/3] rounded-2xl overflow-hidden border-4 border-white shadow-xl z-20 hidden md:block">
-                 {/* Unsplash: balcony view */}
-                <img 
-                  src="https://images.unsplash.com/photo-1566073771259-6a8506099945?q=80&w=2070&auto=format&fit=crop" 
-                  alt="Balcony" 
+                {/* Unsplash: balcony view */}
+                <img
+                  src="https://images.unsplash.com/photo-1566073771259-6a8506099945?q=80&w=2070&auto=format&fit=crop"
+                  alt="Balcony"
                   className="w-full h-full object-cover"
                 />
               </div>
@@ -132,7 +131,7 @@ export default function Home() {
               ))
             ) : (
               rooms?.map((room) => (
-                <RoomCard key={room.id} room={room} />
+                <PropertyCard key={room.id} room={room} />
               ))
             )}
           </div>

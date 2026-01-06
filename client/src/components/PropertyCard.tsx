@@ -3,13 +3,13 @@ import { Users, Wifi, Wind } from "lucide-react";
 import type { Room } from "@shared/schema";
 import { motion } from "framer-motion";
 
-interface RoomCardProps {
+interface PropertyCardProps {
   room: Room;
 }
 
-export function RoomCard({ room }: RoomCardProps) {
+export function PropertyCard({ room }: PropertyCardProps) {
   return (
-    <motion.div 
+    <motion.div
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
@@ -17,8 +17,8 @@ export function RoomCard({ room }: RoomCardProps) {
       className="group bg-white rounded-3xl overflow-hidden border border-border/50 shadow-sm hover:shadow-xl hover:shadow-primary/5 transition-all duration-300"
     >
       <div className="aspect-[4/3] overflow-hidden relative">
-        <img 
-          src={room.imageUrl} 
+        <img
+          src={room.imageUrl}
           alt={room.title}
           className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
         />
@@ -29,7 +29,7 @@ export function RoomCard({ room }: RoomCardProps) {
           </p>
         </div>
       </div>
-      
+
       <div className="p-6">
         <h3 className="text-xl font-bold font-display text-foreground mb-2 group-hover:text-primary transition-colors">
           {room.title}
@@ -54,15 +54,6 @@ export function RoomCard({ room }: RoomCardProps) {
         </div>
 
         <div className="flex items-center justify-between mt-auto">
-          {room.price && (
-            <div>
-              <span className="text-lg font-bold text-primary">₹{room.price}</span>
-              <span className="text-xs text-muted-foreground"> / night</span>
-            </div>
-          )}
-          <Link href={`/rooms`} className="w-full text-center bg-primary text-white py-2.5 rounded-xl text-sm font-medium hover:bg-primary/90 transition-all">
-            View Details
-          </Link>
         </div>
       </div>
     </motion.div>

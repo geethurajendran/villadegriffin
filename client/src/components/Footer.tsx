@@ -8,9 +8,9 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
           {/* Brand */}
           <div className="col-span-1 md:col-span-1">
-            <h3 className="text-2xl font-bold text-primary font-display mb-4">Olive Villa</h3>
+            <h3 className="text-2xl font-bold text-primary font-display mb-4">Villa De Griffin</h3>
             <p className="text-muted-foreground leading-relaxed text-sm">
-              Experience comfort and serenity in our beautiful budget-friendly homestay nestled in nature.
+              Experience comfort and serenity in our beautiful Home Stay nestled in the heart of Puducherry.
             </p>
           </div>
 
@@ -31,15 +31,15 @@ export function Footer() {
             <ul className="space-y-4 text-sm text-muted-foreground">
               <li className="flex items-start gap-3">
                 <MapPin className="w-5 h-5 text-primary shrink-0" />
-                <span>123 Green Valley Road,<br />Hilltop District, 560001</span>
+                <span>No:2, Mariamman Koil St, Vazhakulam,<br />Puducherry, 605002</span>
               </li>
               <li className="flex items-center gap-3">
                 <Phone className="w-5 h-5 text-primary shrink-0" />
-                <span>+91 98765 43210</span>
+                <span>+91 89400 76980</span>
               </li>
               <li className="flex items-center gap-3">
                 <Mail className="w-5 h-5 text-primary shrink-0" />
-                <span>hello@olivevilla.com</span>
+                <span>villadegriffin@gmail.com</span>
               </li>
             </ul>
           </div>
@@ -60,7 +60,7 @@ export function Footer() {
 
         <div className="border-t border-primary/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-sm text-muted-foreground">
-            © {new Date().getFullYear()} Olive Villa Homestay. All rights reserved.
+            © {new Date().getFullYear()} Villa De Griffin Home Stay. All rights reserved.
           </p>
           <div className="flex gap-6 text-sm text-muted-foreground">
             <Link href="#" className="hover:text-primary">Privacy Policy</Link>
