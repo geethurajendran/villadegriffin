@@ -92,7 +92,7 @@ export default function Home() {
               <div className="aspect-square rounded-3xl overflow-hidden shadow-2xl shadow-primary/10 relative z-10">
                 {/* Unsplash: clean bright interior bedroom */}
                 <img
-                  src="https://images.unsplash.com/photo-1616594039964-408359566a05?q=80&w=2070&auto=format&fit=crop"
+                  src="/images/home_interior.jpg"
                   alt="Interior"
                   className="w-full h-full object-cover"
                 />
@@ -100,7 +100,7 @@ export default function Home() {
               <div className="absolute -bottom-6 -right-6 w-2/3 aspect-[4/3] rounded-2xl overflow-hidden border-4 border-white shadow-xl z-20 hidden md:block">
                 {/* Unsplash: balcony view */}
                 <img
-                  src="https://images.unsplash.com/photo-1566073771259-6a8506099945?q=80&w=2070&auto=format&fit=crop"
+                  src="/images/home_secondary.jpg"
                   alt="Balcony"
                   className="w-full h-full object-cover"
                 />
